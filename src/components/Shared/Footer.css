@@ -1,0 +1,36 @@
+.footer-title{
+    text-align: center;
+    padding: 50px 0 0px 0;
+}
+.footer-about-title{
+
+}
+.footer-about-details{
+    line-height: 1.5;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.footer-siteLink h3{
+    margin-left: 37px;
+}
+.footer-siteLink ul li{
+    list-style: none;
+    line-height: 1.5;
+}
+.footer-siteLink ul li a{
+   text-decoration: none; 
+   color: #907F74;
+}
+
+.footer-category h3{
+    margin-left: 37px;
+}
+.footer-category ul li{
+    list-style: none;
+    line-height: 1.5;
+}
+.footer-category ul li a{
+   text-decoration: none; 
+   color: #907F74;
+}
