@@ -1,0 +1,11 @@
+.sub-contents-title{
+    text-decoration: none;
+    color: black;
+}
+.sub-contents-title h4{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.sub-contents-img img{
+    width: 100%;
+}

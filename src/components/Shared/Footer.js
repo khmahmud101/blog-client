@@ -3,7 +3,7 @@ import React from "react";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "#2D2520", color: "#938277" }}>
+    <Box sx={{ backgroundColor: "#2D2520", color: "#938277", mt:7 }}>
       <Container>
         <h1 className="footer-title">Footer Title Goes Here</h1>
         <Grid container spacing={2}>

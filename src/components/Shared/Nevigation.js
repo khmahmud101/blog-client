@@ -11,8 +11,10 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
-const pages = ["Python", "Javascript", "DSA", "Web", "Tech World"];
+const pages = ["python", "javascript", "dsa", "web", "tech world"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Nevigation = () => {
@@ -43,7 +45,7 @@ const Nevigation = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            TechScan
+            <NavLink style={{ color: '#fff', textDecoration: 'none' }}  to="/"> TechScan </NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -77,7 +79,7 @@ const Nevigation = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center"><Link to={`/category/${page}`}>{page}</Link></Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -88,16 +90,16 @@ const Nevigation = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            TechScan
+           <NavLink to="/"> TechScan </NavLink>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "flex-end",mr: 2 }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#FFFFFF", display: "block" }}
+                
               >
-                {page}
+                <NavLink  style={{ my: 2, color: "#FFFFFF", display: "block", textDecoration:"none" }} to={`/category/${page !== 'tech world' ? page : 'tech-world'}`}>{page}</NavLink>
               </Button>
             ))}
           </Box>
