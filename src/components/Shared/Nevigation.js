@@ -11,8 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "@mui/material";
-import { NavLink } from "react-router-dom";
+
+import { NavLink, Link } from "react-router-dom";
 
 const pages = ["python", "javascript", "dsa", "web", "tech world"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -36,7 +36,7 @@ const Nevigation = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar sx={{ backgroundColor: "#2D2520"}} position="static">
+    <AppBar sx={{ backgroundColor: "#2D2520" }} position="static">
       <Container>
         <Toolbar disableGutters>
           <Typography
@@ -45,7 +45,10 @@ const Nevigation = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <NavLink style={{ color: '#fff', textDecoration: 'none' }}  to="/"> TechScan </NavLink>
+            <NavLink style={{ color: "#fff", textDecoration: "none" }} to="/">
+              {" "}
+              TechScan{" "}
+            </NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -79,7 +82,9 @@ const Nevigation = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to={`/category/${page}`}>{page}</Link></Typography>
+                  <Typography textAlign="center">
+                    <Link to={`/category/${page}`}>{page}</Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -90,18 +95,61 @@ const Nevigation = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-           <NavLink to="/"> TechScan </NavLink>
+            <NavLink to="/"> TechScan </NavLink>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "flex-end",mr: 2 }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+              mr: 2,
+            }}
+          >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                
-              >
-                <NavLink  style={{ my: 2, color: "#FFFFFF", display: "block", textDecoration:"none" }} to={`/category/${page !== 'tech world' ? page : 'tech-world'}`}>{page}</NavLink>
+              <Button key={page} onClick={handleCloseNavMenu}>
+                <NavLink
+                  style={{
+                    my: 2,
+                    color: "#FFFFFF",
+                    display: "block",
+                    textDecoration: "none",
+                  }}
+                  to={`/category/${
+                    page !== "tech world" ? page : "tech-world"
+                  }`}
+                >
+                  {page}
+                </NavLink>
               </Button>
             ))}
+          </Box>
+          <Box>
+            <Link
+              to={"/login"}
+              style={{
+                my: 2,
+                color: "#FFFFFF",
+                display: "block",
+                textDecoration: "none",
+                marginRight:"5px",
+                fontWeight:"600"
+              }}
+            >
+              LOGIN
+            </Link>
+            <Link
+              to={"/register"}
+              style={{
+                my: 2,
+                color: "#FFFFFF",
+                display: "block",
+                textDecoration: "none",
+                marginRight:"5px",
+                fontWeight:"600"
+              }}
+            >
+              REGISTER
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -110,6 +158,7 @@ const Nevigation = () => {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
