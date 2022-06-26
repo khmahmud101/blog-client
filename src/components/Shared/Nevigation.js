@@ -13,11 +13,14 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import { NavLink, Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
 
 const pages = ["python", "javascript", "dsa", "web", "tech world"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Account", "Dashboard", "Logout",];
 
 const Nevigation = () => {
+  const {user,logout} = useAuth()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -124,7 +127,21 @@ const Nevigation = () => {
             ))}
           </Box>
           <Box>
-            <Link
+            
+            {
+              user?.email ? <Button
+              onClick={logout}
+              style={{
+                my: 2,
+                color: "#FFFFFF",
+                display: "block",
+                textDecoration: "none",
+                marginRight:"5px",
+                fontWeight:"600"
+              }}
+            >
+              Logout
+            </Button> : <NavLink
               to={"/login"}
               style={{
                 my: 2,
@@ -136,20 +153,8 @@ const Nevigation = () => {
               }}
             >
               LOGIN
-            </Link>
-            <Link
-              to={"/register"}
-              style={{
-                my: 2,
-                color: "#FFFFFF",
-                display: "block",
-                textDecoration: "none",
-                marginRight:"5px",
-                fontWeight:"600"
-              }}
-            >
-              REGISTER
-            </Link>
+            </NavLink>
+            }
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

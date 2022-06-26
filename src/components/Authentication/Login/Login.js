@@ -1,6 +1,6 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
-import login from "../../../../image/login.png";
+import login from "../../../image/login.png";
 const Login = () => {
   return (
     <Container>
