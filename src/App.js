@@ -6,6 +6,8 @@ import CategoryPage from "./components/pages/CategoryPage/CategoryPage";
 import Login from "./components/Authentication/Login/Login";
 import Register from "./components/Authentication/Register/Register";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import PrivateRoute from "./components/Authentication/PrivateRoute/PrivateRoute";
+
 function App() {
   return (
     <div>
@@ -13,7 +15,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/post/:id" element={<BlogDetails />} />
+          <Route
+            path="/post/:id"
+            element={
+              <PrivateRoute>
+                <BlogDetails />
+              </PrivateRoute>
+            }
+          />
           <Route path="/category/:page" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

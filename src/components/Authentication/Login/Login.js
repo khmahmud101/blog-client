@@ -2,10 +2,13 @@ import { Alert, Button, Container, Grid, TextField, Typography } from "@mui/mate
 import React, { useState } from "react";
 import login from "../../../image/login.png";
 import useAuth from "../../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
   const [loginData, setLoginData] = useState({})
   const {user, loginUser, isLoading,authError} = useAuth();
+  const location = useLocation();
+  const my_navigate = useNavigate();
+  console.log(my_navigate);
   const handleOnChange = (e) =>{
     const filed = e.target.name;
     const value = e.target.value;
@@ -15,7 +18,7 @@ const Login = () => {
   }
   const handleLoginSubmit = (e) =>{
     
-    loginUser(loginData.email, loginData.password);
+    loginUser(loginData.email, loginData.password,location,my_navigate);
     e.preventDefault()
   }
   return (

@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -32,10 +33,13 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false))
   };
 
-  const loginUser = (email, password) => {
+  const loginUser = (email, password, location, nevigate) => {
+    
     setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        const destination = location?.state?.from?.pathname || '/';
+        nevigate(destination)
         setAuthError('')
         
       })
